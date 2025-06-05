@@ -28,7 +28,7 @@ SECRET_KEY = config('SECRET_KEY', default='insecure-key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-ALLOWED_HOSTS = ['https://dragunov.onrender.com']
+ALLOWED_HOSTS = ['dragunov.onrender.com']
 
 
 # Application definition
@@ -68,9 +68,11 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -85,7 +87,7 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 import dj_database_url
 
 DATABASES = {
-    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+    'default': dj_database_url.config(default='sqlite:///db.sqlite3')
 }
 
 
@@ -148,3 +150,5 @@ EMAIL_HOST_PASSWORD = config('EMAIL_PASS')
 
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
