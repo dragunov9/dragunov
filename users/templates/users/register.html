@@ -1,0 +1,72 @@
+{% extends "MoussawiApp/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="content-section">
+    <form id="registerForm">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Join Today</legend>
+            {{ form|crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Sign Up</button>
+        </div>
+    </form>
+    <div id="message" class="mt-3"></div>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            Already Have An Account? <a class="ml-2" href="{% url 'login' %}">Sign In</a>
+        </small>
+    </div>
+</div>
+
+<script>
+document.getElementById('registerForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+
+    const data = {
+        username: formData.get('username'),
+        email: formData.get('email'),
+        password1: formData.get('password1'), 
+        password2: formData.get('password2') 
+    };
+
+    try {
+        const response = await fetch('/users/api/register/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': '{{ csrf_token }}',
+            },
+            body: JSON.stringify(data),
+        });
+
+        const result = await response.json();
+        const messageDiv = document.getElementById('message');
+               
+
+             if (response.ok) {
+   window.location.href = "{% url 'login' %}?registered=1";
+}
+
+             else {
+            let errors = '';
+            for (const key in result) {
+                if (Array.isArray(result[key])) {
+                    result[key].forEach(error => {
+                        errors += `<p class="text-danger">${key}: ${error}</p>`;
+                    });
+                } else {
+                    errors += `<p class="text-danger">${key}: ${result[key]}</p>`;
+                }
+            }
+            messageDiv.innerHTML = errors;
+        }
+    } catch (error) {
+        document.getElementById('message').innerHTML = '<p class="text-danger">An error occurred. Please try again.</p>';
+    }
+});
+</script>
+{% endblock content %}
