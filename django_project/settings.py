@@ -27,9 +27,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY', default='insecure-key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ['*']
+DEBUG = False
+ALLOWED_HOSTS = ['https://dragunov.onrender.com']
 
 
 # Application definition
@@ -83,9 +82,12 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+import dj_database_url
+
 DATABASES = {
-    'default': dj_database_url.parse('postgresql://dragunov_db_zyxm_user:qOiVMVe3mAqDRyhHx6KdSQaFZRRjmM6d@dpg-d10gvju3jp1c738vu7p0-a.frankfurt-postgres.render.com/dragunov_db_zyxm')
+    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
 }
+
 
 
 

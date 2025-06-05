@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: django-web-service
+    env: python
+    region: frankfurt
+    buildCommand: ""
+    startCommand: gunicorn django_project.wsgi:application
+    preDeployCommand: python manage.py migrate && python manage.py collectstatic --noinput
+    envVars:
+      - key: SECRET_KEY
+        sync: false
+      - key: EMAIL_USER
+        sync: false
+      - key: EMAIL_PASS
+        sync: false
