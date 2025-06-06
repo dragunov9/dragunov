@@ -56,7 +56,8 @@ def profile(request):
                     file_name=image_file.name,
                     options={"folder": "/profile_pics/"}
                 )
-                profile.image = upload.get("url")
+                if upload.response and 'url' in upload.response:
+                   profile.image = upload.response['url']
 
             profile.save()
             messages.success(request, 'Your account has been updated!')
