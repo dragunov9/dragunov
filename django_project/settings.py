@@ -28,7 +28,7 @@ SECRET_KEY = config('SECRET_KEY', default='insecure-key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-ALLOWED_HOSTS = ['dragunov.onrender.com']
+ALLOWED_HOSTS = ['dragunov.onrender.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
