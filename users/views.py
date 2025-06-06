@@ -7,13 +7,21 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
 from .api_serializers import RegisterSerializer
+from imagekitio import ImageKit
+from django.conf import settings
 
+
+# Initialize ImageKit
+imagekit = ImageKit(
+    public_key=settings.IMAGEKIT['public_key'],
+    private_key=settings.IMAGEKIT['private_key'],
+    url_endpoint=settings.IMAGEKIT['url_endpoint']
+)
 
 
 def register_page(request):
     form = UserRegisterForm()
     return render(request, 'users/register.html', {'form': form})
-
 
 
 def register(request):
@@ -33,15 +41,26 @@ def register(request):
 def profile(request):
     if request.method == 'POST':
         u_form = UserUpdateForm(request.POST, instance=request.user)
-        p_form = ProfileUpdateForm(request.POST,
-                                   request.FILES,
-                                   instance=request.user.profile)
+        p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+
         if u_form.is_valid() and p_form.is_valid():
             u_form.save()
-            p_form.save()
-            messages.success(request, f'Your account has been updated!')
-            return redirect('profile')
 
+            # Handle image upload to ImageKit
+            profile = p_form.save(commit=False)
+            image_file = request.FILES.get('image')
+
+            if image_file:
+                upload = imagekit.upload_file(
+                    file=image_file,
+                    file_name=image_file.name,
+                    options={"folder": "/profile_pics/"}
+                )
+                profile.image = upload.get("url")
+
+            profile.save()
+            messages.success(request, 'Your account has been updated!')
+            return redirect('profile')
     else:
         u_form = UserUpdateForm(instance=request.user)
         p_form = ProfileUpdateForm(instance=request.user.profile)
@@ -52,6 +71,7 @@ def profile(request):
     }
 
     return render(request, 'users/profile.html', context)
+
 
 @api_view(['POST'])
 @permission_classes([AllowAny])
