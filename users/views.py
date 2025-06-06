@@ -54,9 +54,8 @@ def profile(request):
                 upload = imagekit.upload_file(
                     file=image_file,
                     file_name=image_file.name,
-                    folder="/profile_pics/"
                 )
-                if 'url' in upload:
+                if upload and upload.get("url"):
                    profile.image = upload['url']
 
             profile.save()
