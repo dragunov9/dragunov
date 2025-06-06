@@ -54,10 +54,10 @@ def profile(request):
                 upload = imagekit.upload_file(
                     file=image_file,
                     file_name=image_file.name,
-                    options={"folder": "/profile_pics/"}
+                    folder="/profile_pics/"
                 )
-                if upload.response and 'url' in upload.response:
-                   profile.image = upload.response['url']
+                if 'url' in upload:
+                   profile.image = upload['url']
 
             profile.save()
             messages.success(request, 'Your account has been updated!')
