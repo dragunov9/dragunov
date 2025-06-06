@@ -48,7 +48,7 @@ def profile(request):
 
             # Handle image upload to ImageKit
             profile = p_form.save(commit=False)
-            image_file = request.FILES.get('image')
+            image_file = request.FILES.get('image') or request.FILES.get('profile.image')
 
             if image_file:
                 upload = imagekit.upload_file(
