@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 from .imagekit_utils import upload_image
-import os
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -11,12 +10,15 @@ class Profile(models.Model):
 
     def save(self, *args, **kwargs):
         
-        if self.image and not str(self.image).startswith('http') and os.path.exists(self.image.path):
-            with open(self.image.path, 'rb') as f:
-                file_data = f.read()
-                upload_response = upload_image(file_data, self.image.name)
-                if upload_response.response and upload_response.response.url:
-                    self.image = upload_response.response.url
+        if self.image and not str(self.image).startswith('http'):
+            try:
+                with open(self.image, 'rb') as f:
+                    file_data = f.read()
+                    upload_response = upload_image(file_data, os.path.basename(self.image))
+                    if upload_response.response and upload_response.response.url:
+                        self.image = upload_response.response.url
+            except FileNotFoundError:
+                pass  
 
         super().save(*args, **kwargs)
 
