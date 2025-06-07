@@ -10,10 +10,10 @@ class Profile(models.Model):
     )
 
     def save(self, *args, **kwargs):
-        if self.image and not self.image.url.startswith('http') and self.image.name != 'default.jpg':
+        if self.image and not str(self.image).startswith('http') and 'default.jpg' not in str(self.image):
             file_data = self.image.read()
             upload_response = upload_image(file_data, self.image.name)
-            if upload_response.response and upload_response.response.url:
+            if upload_response and upload_response.response and upload_response.response.url:
                 self.image = upload_response.response.url
         super().save(*args, **kwargs)
 
