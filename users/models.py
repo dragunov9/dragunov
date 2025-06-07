@@ -1,24 +1,24 @@
 from django.db import models
 from django.contrib.auth.models import User
 from .imagekit_utils import upload_image
+import os
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    
+    image_file = models.ImageField(upload_to='profile_pics/', blank=True, null=True)
     image = models.URLField(
         default='https://ik.imagekit.io/dragunov/default.jpg?updatedAt=1749255658947',
     )
 
     def save(self, *args, **kwargs):
-        
-        if self.image and not str(self.image).startswith('http'):
-            try:
-                with open(self.image, 'rb') as f:
-                    file_data = f.read()
-                    upload_response = upload_image(file_data, os.path.basename(self.image))
-                    if upload_response.response and upload_response.response.url:
-                        self.image = upload_response.response.url
-            except FileNotFoundError:
-                pass  
+        if self.image_file:
+            file_data = self.image_file.read()
+            filename = os.path.basename(self.image_file.name)
+            upload_response = upload_image(file_data, filename)
+            if upload_response.response and upload_response.response.url:
+                self.image = upload_response.response.url
+            self.image_file = None  
 
         super().save(*args, **kwargs)
 
