@@ -88,14 +88,3 @@ a.article-title:hover {
     font-size: 2.5rem;
 }
 
-.article-content {
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    white-space: pre-wrap;
-}
-
-
-.content-section {
-    max-width: 800px;
-    margin: auto;
-}

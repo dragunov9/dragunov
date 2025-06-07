@@ -5,9 +5,8 @@ import os
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    image = models.ImageField(
+    image = models.URLField(
         default='https://ik.imagekit.io/dragunov/default.jpg?updatedAt=1749255658947',
-        upload_to='profile_pics'
     )
 
     def save(self, *args, **kwargs):
