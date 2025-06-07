@@ -8,10 +8,9 @@ imagekit = ImageKit(
 )
 
 def upload_image(file, file_name):
+    options = type("Options", (object,), {"folder": "profile_pics/"})()
     return imagekit.upload(
         file=file,
         file_name=file_name,
-        options={
-            "folder": "profile_pics/"
-        }
+        options=options
     )
