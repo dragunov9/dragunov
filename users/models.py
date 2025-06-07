@@ -13,8 +13,8 @@ class Profile(models.Model):
         if self.image and not self.image.url.startswith('http') and self.image.name != 'default.jpg':
             file_data = self.image.read()
             upload_response = upload_image(file_data, self.image.name)
-            if upload_response.get("response") and upload_response["response"].get("url"):
-                self.image = upload_response["response"]["url"]
+            if upload_response.response and upload_response.response.url:
+                self.image = upload_response.response.url
         super().save(*args, **kwargs)
 
     def __str__(self):
