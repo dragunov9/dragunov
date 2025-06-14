@@ -150,21 +150,11 @@
   }
 },
 {
-  "model": "MoussawiApp.post",
-  "pk": 53,
-  "fields": {
-    "title": "ii",
-    "content": "ii",
-    "date_posted": "2025-06-05T00:55:22.817Z",
-    "author": 28
-  }
-},
-{
   "model": "users.profile",
   "pk": 12,
   "fields": {
     "user": 1,
-    "image": "profile_pics/badges__1_-removebg-preview_ORl0vtg.png"
+    "image": "profile_pics/badges__3_-removebg-preview.png"
   }
 },
 {
@@ -217,14 +207,6 @@
 },
 {
   "model": "users.profile",
-  "pk": 26,
-  "fields": {
-    "user": 27,
-    "image": "default.jpg"
-  }
-},
-{
-  "model": "users.profile",
   "pk": 27,
   "fields": {
     "user": 28,
@@ -232,1238 +214,387 @@
   }
 },
 {
-  "model": "admin.logentry",
-  "pk": 1,
-  "fields": {
-    "action_time": "2025-05-25T00:50:45.647Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "3",
-    "object_repr": "MoussawiApp 3",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Title\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 2,
-  "fields": {
-    "action_time": "2025-05-26T00:34:18.548Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "2",
-    "object_repr": "ali",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 3,
-  "fields": {
-    "action_time": "2025-05-26T01:17:38.059Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "5",
-    "object_repr": "alo",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 4,
-  "fields": {
-    "action_time": "2025-05-26T01:17:42.175Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "4",
-    "object_repr": "aliali",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 5,
-  "fields": {
-    "action_time": "2025-05-26T18:26:07.647Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "3",
-    "object_repr": "ali",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 6,
-  "fields": {
-    "action_time": "2025-05-26T23:14:08.302Z",
-    "user": 1,
-    "content_type": 8,
-    "object_id": "1",
-    "object_repr": "ali Profile",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 7,
-  "fields": {
-    "action_time": "2025-05-26T23:15:15.335Z",
-    "user": 1,
-    "content_type": 8,
-    "object_id": "2",
-    "object_repr": "ali1 Profile",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 8,
-  "fields": {
-    "action_time": "2025-05-26T23:26:48.882Z",
-    "user": 1,
-    "content_type": 8,
-    "object_id": "2",
-    "object_repr": "ali1 Profile",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 9,
-  "fields": {
-    "action_time": "2025-05-26T23:26:48.882Z",
-    "user": 1,
-    "content_type": 8,
-    "object_id": "1",
-    "object_repr": "ali Profile",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 10,
-  "fields": {
-    "action_time": "2025-05-26T23:39:27.795Z",
-    "user": 1,
-    "content_type": 8,
-    "object_id": "3",
-    "object_repr": "ali Profile",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 11,
-  "fields": {
-    "action_time": "2025-05-26T23:41:15.806Z",
-    "user": 1,
-    "content_type": 8,
-    "object_id": "4",
-    "object_repr": "ali1 Profile",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 12,
-  "fields": {
-    "action_time": "2025-05-27T00:03:20.385Z",
-    "user": 1,
-    "content_type": 8,
-    "object_id": "4",
-    "object_repr": "ali1 Profile",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 13,
-  "fields": {
-    "action_time": "2025-05-27T00:07:48.899Z",
-    "user": 1,
-    "content_type": 8,
-    "object_id": "4",
-    "object_repr": "ali1 Profile",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 14,
-  "fields": {
-    "action_time": "2025-05-27T00:07:54.557Z",
-    "user": 1,
-    "content_type": 8,
-    "object_id": "5",
-    "object_repr": "ali1 Profile",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 15,
-  "fields": {
-    "action_time": "2025-05-27T00:27:39.011Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "7",
-    "object_repr": "newuser3",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 16,
-  "fields": {
-    "action_time": "2025-05-27T00:54:50.570Z",
-    "user": 1,
-    "content_type": 8,
-    "object_id": "3",
-    "object_repr": "ali Profile",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 17,
-  "fields": {
-    "action_time": "2025-05-27T00:58:41.510Z",
-    "user": 1,
-    "content_type": 8,
-    "object_id": "5",
-    "object_repr": "ali1 Profile",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 18,
-  "fields": {
-    "action_time": "2025-05-27T00:58:41.510Z",
-    "user": 1,
-    "content_type": 8,
-    "object_id": "3",
-    "object_repr": "ali Profile",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 19,
-  "fields": {
-    "action_time": "2025-05-27T01:00:13.440Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "3",
-    "object_repr": "ali",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 20,
-  "fields": {
-    "action_time": "2025-05-27T01:00:13.440Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "6",
-    "object_repr": "ali1",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 21,
-  "fields": {
-    "action_time": "2025-05-27T01:00:13.440Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "8",
-    "object_repr": "newuser3",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 22,
-  "fields": {
-    "action_time": "2025-05-27T01:00:54.883Z",
-    "user": 1,
-    "content_type": 8,
-    "object_id": "6",
-    "object_repr": "ali Profile",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 23,
-  "fields": {
-    "action_time": "2025-05-27T01:03:16.129Z",
-    "user": 1,
-    "content_type": 8,
-    "object_id": "6",
-    "object_repr": "ali Profile",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 24,
-  "fields": {
-    "action_time": "2025-05-27T01:04:45.360Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "9",
-    "object_repr": "ali",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 25,
-  "fields": {
-    "action_time": "2025-05-27T01:05:39.051Z",
-    "user": 1,
-    "content_type": 8,
-    "object_id": "7",
-    "object_repr": "ali Profile",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 26,
-  "fields": {
-    "action_time": "2025-05-27T01:08:31.343Z",
-    "user": 1,
-    "content_type": 8,
-    "object_id": "8",
-    "object_repr": "hussein Profile",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 27,
-  "fields": {
-    "action_time": "2025-05-27T22:30:29.384Z",
-    "user": 1,
-    "content_type": 8,
-    "object_id": "8",
-    "object_repr": "hussein Profile",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 28,
-  "fields": {
-    "action_time": "2025-05-27T22:30:29.384Z",
-    "user": 1,
-    "content_type": 8,
-    "object_id": "7",
-    "object_repr": "ali Profile",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 29,
-  "fields": {
-    "action_time": "2025-05-27T22:33:39.459Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "11",
-    "object_repr": "ali1",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
+  "model": "users.profile",
   "pk": 30,
   "fields": {
-    "action_time": "2025-05-27T22:35:47.384Z",
-    "user": 1,
-    "content_type": 8,
-    "object_id": "9",
-    "object_repr": "ali Profile",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
+    "user": 31,
+    "image": "default.jpg"
   }
 },
 {
-  "model": "admin.logentry",
-  "pk": 31,
-  "fields": {
-    "action_time": "2025-05-27T22:36:48.047Z",
-    "user": 1,
-    "content_type": 8,
-    "object_id": "9",
-    "object_repr": "ali Profile",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 32,
-  "fields": {
-    "action_time": "2025-05-27T22:36:53.067Z",
-    "user": 1,
-    "content_type": 8,
-    "object_id": "10",
-    "object_repr": "hussein Profile",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
+  "model": "users.profile",
   "pk": 33,
   "fields": {
-    "action_time": "2025-05-27T22:37:09.888Z",
-    "user": 1,
-    "content_type": 8,
-    "object_id": "10",
-    "object_repr": "hussein Profile",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+    "user": 34,
+    "image": "profile_pics/badges__1_-removebg-preview_LYPBU4F.png"
   }
 },
 {
-  "model": "admin.logentry",
+  "model": "users.profile",
   "pk": 34,
   "fields": {
-    "action_time": "2025-05-27T22:37:18.224Z",
-    "user": 1,
-    "content_type": 8,
-    "object_id": "11",
-    "object_repr": "ali Profile",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
+    "user": 35,
+    "image": "default.jpg"
   }
 },
 {
-  "model": "admin.logentry",
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 2,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 3,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 4,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 4,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 4,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 4,
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 5,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 5,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 5,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 5,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 6,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 6,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 6,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 6,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add post",
+    "content_type": 7,
+    "codename": "add_post"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change post",
+    "content_type": 7,
+    "codename": "change_post"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete post",
+    "content_type": 7,
+    "codename": "delete_post"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view post",
+    "content_type": 7,
+    "codename": "view_post"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add profile",
+    "content_type": 8,
+    "codename": "add_profile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change profile",
+    "content_type": 8,
+    "codename": "change_profile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete profile",
+    "content_type": 8,
+    "codename": "delete_profile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view profile",
+    "content_type": 8,
+    "codename": "view_profile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add Token",
+    "content_type": 9,
+    "codename": "add_token"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change Token",
+    "content_type": 9,
+    "codename": "change_token"
+  }
+},
+{
+  "model": "auth.permission",
   "pk": 35,
   "fields": {
-    "action_time": "2025-05-27T23:28:45.090Z",
-    "user": 1,
-    "content_type": 8,
-    "object_id": "10",
-    "object_repr": "hussein Profile",
-    "action_flag": 3,
-    "change_message": ""
+    "name": "Can delete Token",
+    "content_type": 9,
+    "codename": "delete_token"
   }
 },
 {
-  "model": "admin.logentry",
+  "model": "auth.permission",
   "pk": 36,
   "fields": {
-    "action_time": "2025-05-27T23:29:27.289Z",
-    "user": 1,
-    "content_type": 8,
-    "object_id": "12",
-    "object_repr": "hussein Profile",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
+    "name": "Can view Token",
+    "content_type": 9,
+    "codename": "view_token"
   }
 },
 {
-  "model": "admin.logentry",
+  "model": "auth.permission",
   "pk": 37,
   "fields": {
-    "action_time": "2025-05-27T23:31:06.767Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "3",
-    "object_repr": "MoussawiApp 3",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Author\"]}}]"
+    "name": "Can add Token",
+    "content_type": 10,
+    "codename": "add_tokenproxy"
   }
 },
 {
-  "model": "admin.logentry",
+  "model": "auth.permission",
   "pk": 38,
   "fields": {
-    "action_time": "2025-05-28T00:44:15.618Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "3",
-    "object_repr": "MoussawiApp 3",
-    "action_flag": 3,
-    "change_message": ""
+    "name": "Can change Token",
+    "content_type": 10,
+    "codename": "change_tokenproxy"
   }
 },
 {
-  "model": "admin.logentry",
+  "model": "auth.permission",
   "pk": 39,
   "fields": {
-    "action_time": "2025-05-28T00:44:35.136Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "4",
-    "object_repr": "MoussawiApp",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
+    "name": "Can delete Token",
+    "content_type": 10,
+    "codename": "delete_tokenproxy"
   }
 },
 {
-  "model": "admin.logentry",
+  "model": "auth.permission",
   "pk": 40,
   "fields": {
-    "action_time": "2025-05-28T00:45:27.769Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "4",
-    "object_repr": "MoussawiApp",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 41,
-  "fields": {
-    "action_time": "2025-05-28T00:45:27.769Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "2",
-    "object_repr": "MoussawiApp 2",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 42,
-  "fields": {
-    "action_time": "2025-05-28T00:45:27.769Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "1",
-    "object_repr": "MoussawiApp 1",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 43,
-  "fields": {
-    "action_time": "2025-05-28T00:45:42.192Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "5",
-    "object_repr": "post1",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 44,
-  "fields": {
-    "action_time": "2025-05-28T00:45:51.996Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "6",
-    "object_repr": "post 2",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 45,
-  "fields": {
-    "action_time": "2025-05-28T00:46:01.275Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "7",
-    "object_repr": "post3",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 46,
-  "fields": {
-    "action_time": "2025-05-28T00:47:00.171Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "6",
-    "object_repr": "post 2",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Author\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 47,
-  "fields": {
-    "action_time": "2025-05-28T19:00:27.335Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "12",
-    "object_repr": "ali1",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 48,
-  "fields": {
-    "action_time": "2025-05-28T19:00:27.335Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "13",
-    "object_repr": "ali2",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 49,
-  "fields": {
-    "action_time": "2025-05-28T19:13:16.575Z",
-    "user": 1,
-    "content_type": 8,
-    "object_id": "13",
-    "object_repr": "ali1 Profile",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 50,
-  "fields": {
-    "action_time": "2025-05-28T19:14:12.718Z",
-    "user": 1,
-    "content_type": 8,
-    "object_id": "14",
-    "object_repr": "ali2 Profile",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 51,
-  "fields": {
-    "action_time": "2025-05-28T19:14:55.138Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "10",
-    "object_repr": "post3",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 52,
-  "fields": {
-    "action_time": "2025-05-30T22:52:43.926Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "40",
-    "object_repr": "The Rise of PUBG: A Battle Royale Revolution",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Content\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 53,
-  "fields": {
-    "action_time": "2025-05-30T22:53:03.255Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "39",
-    "object_repr": "Why PUBG on Steam Remains Relevant in 2025",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Content\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 54,
-  "fields": {
-    "action_time": "2025-05-30T22:53:16.392Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "38",
-    "object_repr": "Top Weapons in PUBG: What You Should Pick",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Content\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 55,
-  "fields": {
-    "action_time": "2025-05-30T22:53:31.073Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "37",
-    "object_repr": "How to Land Safely and Strategically in PUBG",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Content\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 56,
-  "fields": {
-    "action_time": "2025-05-30T22:53:41.678Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "36",
-    "object_repr": "Best Maps in PUBG Ranked",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Content\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 57,
-  "fields": {
-    "action_time": "2025-05-30T22:53:55.817Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "35",
-    "object_repr": "PUBGÆs Impact on the Gaming Industry",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Content\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 58,
-  "fields": {
-    "action_time": "2025-05-30T22:54:05.329Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "34",
-    "object_repr": "How PUBG Handles Realism in Gameplay",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Content\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 59,
-  "fields": {
-    "action_time": "2025-05-30T22:54:18.031Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "33",
-    "object_repr": "Survival Tips for PUBG Beginners",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Content\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 60,
-  "fields": {
-    "action_time": "2025-05-30T22:54:30.380Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "32",
-    "object_repr": "PUBG's Ranking System Explained",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Content\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 61,
-  "fields": {
-    "action_time": "2025-05-30T22:54:54.627Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "31",
-    "object_repr": "Vehicles in PUBG: When and How to Use Them",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Content\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 62,
-  "fields": {
-    "action_time": "2025-05-30T22:55:13.719Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "30",
-    "object_repr": "Mastering the Blue Zone in PUBG",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Content\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 63,
-  "fields": {
-    "action_time": "2025-05-30T22:55:26.855Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "29",
-    "object_repr": "PUBG Skins and Customization Options",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Content\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 64,
-  "fields": {
-    "action_time": "2025-05-30T22:55:37.215Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "28",
-    "object_repr": "The Importance of Teamwork in PUBG Squads",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Content\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 65,
-  "fields": {
-    "action_time": "2025-05-30T22:55:50.381Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "27",
-    "object_repr": "PUBG vs. Warzone: Realism and Strategy",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Content\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 66,
-  "fields": {
-    "action_time": "2025-05-30T22:56:01.550Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "26",
-    "object_repr": "How to Improve Aim and Recoil Control in PUBG",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Content\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 67,
-  "fields": {
-    "action_time": "2025-05-30T22:56:22.498Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "25",
-    "object_repr": "Streamers and PUBG: Building a Community",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Content\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 68,
-  "fields": {
-    "action_time": "2025-05-30T22:56:40.350Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "24",
-    "object_repr": "Sound in PUBG: A Hidden Weapon",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Content\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 69,
-  "fields": {
-    "action_time": "2025-05-30T22:56:51.902Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "24",
-    "object_repr": "Sound in PUBG: A Hidden Weapon",
-    "action_flag": 2,
-    "change_message": "[]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 70,
-  "fields": {
-    "action_time": "2025-05-30T22:57:03.801Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "23",
-    "object_repr": "PUBG Esports Scene and Competitive Play",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Content\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 71,
-  "fields": {
-    "action_time": "2025-05-30T22:57:15.825Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "22",
-    "object_repr": "How Bots Work in PUBG Steam Version",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Content\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 72,
-  "fields": {
-    "action_time": "2025-05-30T22:57:27.875Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "21",
-    "object_repr": "PUBGÆs Seasonal Updates: Keeping It Fresh",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Content\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 73,
-  "fields": {
-    "action_time": "2025-05-30T22:57:38.570Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "20",
-    "object_repr": "PUBGÆs Lore and Backstory: More Than Just a Game",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Content\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 74,
-  "fields": {
-    "action_time": "2025-05-30T22:57:48.940Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "19",
-    "object_repr": "Graphics and Optimization on Steam",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Content\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 75,
-  "fields": {
-    "action_time": "2025-05-30T22:58:01.377Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "18",
-    "object_repr": "Training Mode: The Best Way to Learn PUBG",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Content\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 76,
-  "fields": {
-    "action_time": "2025-05-30T22:58:17.140Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "17",
-    "object_repr": "Why PUBG is Still Worth Playing in 2025",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Content\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 77,
-  "fields": {
-    "action_time": "2025-05-30T22:58:47.073Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "16",
-    "object_repr": "My Latest Updated Post",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 78,
-  "fields": {
-    "action_time": "2025-05-30T22:58:47.073Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "15",
-    "object_repr": "My Updated Post",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 79,
-  "fields": {
-    "action_time": "2025-05-30T22:58:47.073Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "14",
-    "object_repr": "222222222222",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 80,
-  "fields": {
-    "action_time": "2025-05-30T22:58:47.073Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "12",
-    "object_repr": "post 4",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 81,
-  "fields": {
-    "action_time": "2025-05-30T22:58:47.073Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "11",
-    "object_repr": "testttttttttt",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 82,
-  "fields": {
-    "action_time": "2025-05-30T22:58:47.073Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "7",
-    "object_repr": "post3",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 83,
-  "fields": {
-    "action_time": "2025-05-30T22:58:47.073Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "5",
-    "object_repr": "post1",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 84,
-  "fields": {
-    "action_time": "2025-05-31T00:12:33.210Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "1",
-    "object_repr": "hussein",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Email address\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 85,
-  "fields": {
-    "action_time": "2025-05-31T00:13:40.561Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "14",
-    "object_repr": "ali1",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Email address\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 86,
-  "fields": {
-    "action_time": "2025-05-31T02:13:33.075Z",
-    "user": 1,
-    "content_type": 8,
-    "object_id": "12",
-    "object_repr": "hussein Profile",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 87,
-  "fields": {
-    "action_time": "2025-06-03T22:00:38.770Z",
-    "user": 1,
-    "content_type": 8,
-    "object_id": "16",
-    "object_repr": "ali4 Profile",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 88,
-  "fields": {
-    "action_time": "2025-06-03T22:09:43.075Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "10",
-    "object_repr": "ali",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 89,
-  "fields": {
-    "action_time": "2025-06-03T22:09:43.075Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "14",
-    "object_repr": "ali1",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 90,
-  "fields": {
-    "action_time": "2025-06-03T22:09:43.075Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "15",
-    "object_repr": "ali2",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 91,
-  "fields": {
-    "action_time": "2025-06-03T22:09:43.075Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "16",
-    "object_repr": "ali3",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 92,
-  "fields": {
-    "action_time": "2025-06-03T22:09:43.075Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "17",
-    "object_repr": "ali4",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 93,
-  "fields": {
-    "action_time": "2025-06-05T00:09:31.361Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "25",
-    "object_repr": "ali88",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 94,
-  "fields": {
-    "action_time": "2025-06-05T00:09:31.361Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "22",
-    "object_repr": "ali9",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 95,
-  "fields": {
-    "action_time": "2025-06-05T00:09:31.361Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "24",
-    "object_repr": "ali99",
-    "action_flag": 3,
-    "change_message": ""
+    "name": "Can view Token",
+    "content_type": 10,
+    "codename": "view_tokenproxy"
   }
 },
 {
@@ -1471,7 +602,7 @@
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$1000000$BFtVTl2SwL1aGp8DBA0pc1$gB/CsKPuAtbRgpjV40rmqKpuqaOZKm1m5Y4ToKTGlys=",
-    "last_login": "2025-06-05T00:11:45.198Z",
+    "last_login": "2025-06-12T23:02:09.556Z",
     "is_superuser": true,
     "username": "hussein",
     "first_name": "",
@@ -1579,7 +710,7 @@
   "pk": 26,
   "fields": {
     "password": "pbkdf2_sha256$1000000$2Fuxb3HbM8GO6u56Sxvs1v$rwigKvsuth3FL5O2dk61/Mqb34D/ziu/sgoBbZzyHrM=",
-    "last_login": "2025-06-05T00:10:04.227Z",
+    "last_login": "2025-06-06T00:57:40.523Z",
     "is_superuser": false,
     "username": "ali9",
     "first_name": "",
@@ -1594,28 +725,10 @@
 },
 {
   "model": "auth.user",
-  "pk": 27,
-  "fields": {
-    "password": "pbkdf2_sha256$1000000$GngXAh3hfvH2k0nXhSxEbV$LCiyCbL8nJJKyfVUK2NG5mjTmFz/DOBUum1Tu5gZ5TY=",
-    "last_login": "2025-06-05T00:16:33.361Z",
-    "is_superuser": false,
-    "username": "ali88",
-    "first_name": "",
-    "last_name": "",
-    "email": "22@gmail.com",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2025-06-05T00:16:23.551Z",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "auth.user",
   "pk": 28,
   "fields": {
     "password": "pbkdf2_sha256$1000000$eyUuWTHnjPd2S4vCqRF8Ik$MYvHv3VtMWJhP1iGOwTjGR7Djr/U6xCxntbUKBIeHxU=",
-    "last_login": "2025-06-05T00:55:32.389Z",
+    "last_login": "2025-06-06T00:05:11.737Z",
     "is_superuser": false,
     "username": "ali99",
     "first_name": "",
@@ -1629,35 +742,57 @@
   }
 },
 {
-  "model": "sessions.session",
-  "pk": "6glrn7sphb80uqw5x8mhuksqp0q636sl",
+  "model": "auth.user",
+  "pk": 31,
   "fields": {
-    "session_data": ".eJxVjEEOwiAQRe_C2hCwAwWX7j0DGZhBqgaS0q6MdzckXej2v_f-WwTctxL2zmtYSFyEE6ffLWJ6ch2AHljvTaZWt3WJcijyoF3eGvHrerh_BwV7GfWMOWHMHkBnpaez9awIkwIg0toZOysENMk5AmCFOebJI1jWnrRx4vMF_G04Lg:1uJiUD:BotO08TxzYJ0-cJD-AWKj5oyOR8UeQtJ3vxLOBT4TlQ",
-    "expire_date": "2025-06-10T00:48:09.288Z"
+    "password": "pbkdf2_sha256$1000000$lL7uDcKY8usehEGlKDMZfs$pA/3CYkkep1MEStcYhFAn6ICvBDJ2QfOGPGjE3BE9j0=",
+    "last_login": "2025-06-06T00:21:05.103Z",
+    "is_superuser": false,
+    "username": "hussein99",
+    "first_name": "",
+    "last_name": "",
+    "email": "hussein-22@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-06-06T00:20:59.631Z",
+    "groups": [],
+    "user_permissions": []
   }
 },
 {
-  "model": "sessions.session",
-  "pk": "g28z1txpcgvy87jpex9c7nk6rbvpods6",
+  "model": "auth.user",
+  "pk": 34,
   "fields": {
-    "session_data": ".eJxVjEEOwiAQRe_C2hCYAQGX7nsGMgNUqoYmpV0Z765NutDtf-_9l4i0rTVuvSxxyuIitBen35EpPUrbSb5Tu80yzW1dJpa7Ig_a5TDn8rwe7t9BpV6_NSkGtKM3xVKAZLAoYraYc_AajNbGs9aBnEFwwCrheEYmm4wlYHTi_QH8PTeF:1uMyay:uMf2kRsYFp7OcmPPdFZXOq1ti6QvKPufqcwgnSo63_s",
-    "expire_date": "2025-06-19T00:36:36.203Z"
+    "password": "pbkdf2_sha256$1000000$Fw4XRXeI9DDzg218mxAOTE$gRqNS6gMOKv3R7pweVf+NtlelfqFOuC9pBX5kJoNRLw=",
+    "last_login": "2025-06-06T01:03:55.535Z",
+    "is_superuser": false,
+    "username": "alo",
+    "first_name": "",
+    "last_name": "",
+    "email": "alo@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-06-06T01:03:52.102Z",
+    "groups": [],
+    "user_permissions": []
   }
 },
 {
-  "model": "sessions.session",
-  "pk": "p95o9ckutj6j3s92z4mzaev9eil59vs5",
+  "model": "auth.user",
+  "pk": 35,
   "fields": {
-    "session_data": ".eJxVjEEOwiAQRe_C2hCGMgVcuvcMZGBAqoYmpV0Z765NutDtf-_9lwi0rTVsPS9hYnEWoMTpd4yUHrnthO_UbrNMc1uXKcpdkQft8jpzfl4O9--gUq_fGssAyZHTJoLyaIrxYyHFyNGgLTCwRkveok6ZMOvCFkbHkGzKkRnE-wP8ujhl:1uLYqR:9aaWy_sxz4hXI6PaSmyy_eS9oG01ZWMLx6VGbdxEb1w",
-    "expire_date": "2025-06-15T02:54:43.656Z"
-  }
-},
-{
-  "model": "sessions.session",
-  "pk": "q0w23ii7aid8fnath2b3m7axkbfitkl9",
-  "fields": {
-    "session_data": ".eJxVjEEOwiAQRe_C2hCwAwWX7j0DGZhBqgaS0q6MdzckXej2v_f-WwTctxL2zmtYSFyEE6ffLWJ6ch2AHljvTaZWt3WJcijyoF3eGvHrerh_BwV7GfWMOWHMHkBnpaez9awIkwIg0toZOysENMk5AmCFOebJI1jWnrRx4vMF_G04Lg:1uJiJp:KmeRMxVRhiLjJ8jZqlYVRVx27sPmZCUPy8AARhqljS4",
-    "expire_date": "2025-06-10T00:37:25.856Z"
+    "password": "pbkdf2_sha256$1000000$Yl8GKD1b3SBueIr8TKxG1X$YQw/z86hIIG4iWhHKDsVS1oPHoeSdVAd18S1CaKZCBQ=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "ww",
+    "first_name": "",
+    "last_name": "",
+    "email": "ww@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-06-06T01:30:59.372Z",
+    "groups": [],
+    "user_permissions": []
   }
 }
 ]
