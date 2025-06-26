@@ -1,7 +1,7 @@
 {% extends "MoussawiApp/base.html" %}
 {% block content %}
     {% for post in posts %}
-        <article class="media content-section">
+        <article class="media content-section" data-post-id="{{ post.id }}">
           <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
           <div class="media-body">
             <div class="article-metadata">
@@ -10,28 +10,100 @@
             </div>
             <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
             <p class="article-content">{{ post.content }}</p>
+            {% if post.id in user_likes %}
+              <button class="like-btn" data-post-id="{{ post.id }}" style="background: transparent; border: none; cursor: pointer; font-size: 1.2rem;">
+                <span class="heart-icon">💖</span> <span class="like-count">{{ post.likes.count }}</span>
+              </button>
+            {% else %}
+              <button class="like-btn" data-post-id="{{ post.id }}" style="background: transparent; border: none; cursor: pointer; font-size: 1.2rem;">
+                <span class="heart-icon">🤍</span> <span class="like-count">{{ post.likes.count }}</span>
+              </button>
+            {% endif %}
+            <a href="{% url 'post-detail' post.id %}#comments-section" class="">💬</a>
           </div>
         </article>
     {% endfor %}
     {% if is_paginated %}
+      {% if page_obj.has_previous %}
+        <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
+        <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+      {% endif %}
 
-     {% if page_obj.has_previous %}
-       <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
-       <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number}}">Previous</a>
-     {% endif %}
+      {% for num in page_obj.paginator.page_range %}
+        {% if page_obj.number == num %}
+          <a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+          <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+        {% endif %}
+      {% endfor %}
 
-     {% for num in page_obj.paginator.page_range %}
-       {% if page_obj.number == num %}
-        <a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
-       {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
-         <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
-       {% endif %}
-     {% endfor %}
-
-     {% if page_obj.has_next %}
-       <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
-       <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages}}">Last</a>
-     {% endif %}
-
+      {% if page_obj.has_next %}
+        <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+        <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+      {% endif %}
     {% endif %}
+
+   
+   <script>
+  document.querySelectorAll('.like-btn').forEach(button => {
+    button.addEventListener('click', async () => {
+      const postId = button.getAttribute('data-post-id');
+      const countSpan = button.querySelector('.like-count');
+      let currentCount = parseInt(countSpan.textContent) || 0;
+
+      try {
+        const response = await fetch('/api/likes/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCookie('csrftoken')
+          },
+          body: JSON.stringify({ post: postId })
+        });
+
+        if (response.status === 201) {
+          // liked
+          button.style.color = 'red';
+          button.innerHTML = '<span class="heart-icon">💖</span> <span class="like-count">' + (currentCount + 1) + '</span>';
+          setTimeout(() => {
+            const icon = button.querySelector('.heart-icon');
+            if (icon) {
+              icon.classList.add('liked');
+              setTimeout(() => icon.classList.remove('liked'), 500);
+            }
+          }, 10);
+        } else if (response.status === 204) {
+          // unliked
+          button.style.color = 'black';
+          button.innerHTML = '<span class="heart-icon">🤍</span> <span class="like-count">' + Math.max(0, currentCount - 1) + '</span>';
+          const icon = button.querySelector('.heart-icon');
+          icon.classList.add('unliked');
+          setTimeout(() => icon.classList.remove('unliked'), 500);
+        } else {
+          window.location.href = "{% url 'login' %}";
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    });
+  });
+
+  // Helper to get CSRF token from cookie
+  function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+      const cookies = document.cookie.split(';');
+      for (let cookie of cookies) {
+        cookie = cookie.trim();
+        if (cookie.startsWith(name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  }
+</script>
+
+
 {% endblock content %}
