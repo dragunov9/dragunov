@@ -113,6 +113,15 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+
+#imageKit :
+
+IMAGEKIT_PUBLIC_KEY = 'public_Aga3d0owbT5dbiU/yrTXeDGqv6U='
+IMAGEKIT_PRIVATE_KEY = 'private_6Mx/qI7QX0fV1YR7k3M+3ZysMAU='
+IMAGEKIT_URL_ENDPOINT = 'https://ik.imagekit.io/dragunovapp'
+
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
