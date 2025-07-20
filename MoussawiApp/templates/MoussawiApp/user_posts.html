@@ -7,7 +7,7 @@
           <div class="media-body">
             <div class="article-metadata">
               <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
-              <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+              <small class="text-muted" data-timestamp="{{ post.date_posted|date:'c' }}"></small>
             </div>
             <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
             <p class="article-content">{{ post.content }}</p>
@@ -35,4 +35,29 @@
      {% endif %}
 
     {% endif %}
+    <script>
+      // la post time mn 1 second la tosal la 24 hours
+  function timeAgo(timestamp) {
+  const now = new Date();
+  const postTime = new Date(timestamp);
+  const seconds = Math.floor((now - postTime) / 1000);
+
+  if (seconds < 60) return `${seconds}s ago`;
+  const minutes = Math.floor(seconds / 60);
+  if (minutes < 60) return `${minutes} min ago`;
+  const hours = Math.floor(minutes / 60);
+  if (hours < 24) return `${hours} h ago`;
+  return postTime.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
+}
+
+function updateTimestamps() {
+  document.querySelectorAll('[data-timestamp]').forEach(el => {
+    const ts = el.getAttribute('data-timestamp');
+    el.textContent = timeAgo(ts);
+  });
+}
+
+updateTimestamps();
+setInterval(updateTimestamps, 60000); 
+    </script>
 {% endblock content %}

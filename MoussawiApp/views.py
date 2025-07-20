@@ -26,7 +26,7 @@ from rest_framework import generics, permissions
 from .models import Comment
 from rest_framework import status
 from .serializers import CommentSerializer
-
+from django.db.models import Count
 
 def home(request):
     context = {
@@ -42,14 +42,20 @@ class PostListView(ListView):
     ordering = ['-date_posted']
     paginate_by = 7
 
+    def get_queryset(self):
+        return Post.objects.annotate(comment_count=Count('comments')).order_by('-date_posted')
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        posts = context['posts']
+
         if self.request.user.is_authenticated:
             user_likes = Like.objects.filter(user=self.request.user).values_list('post_id', flat=True)
             context['user_likes'] = set(user_likes)
         else:
             context['user_likes'] = set()
         return context
+       
 
 
 class UserPostListView(ListView):
@@ -61,6 +67,20 @@ class UserPostListView(ListView):
     def get_queryset(self):
         user = get_object_or_404(User, username=self.kwargs.get('username'))
         return Post.objects.filter(author=user).order_by('-date_posted')
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        posts = context['posts']
+        comment_counts = {
+            post.id: post.comments.count() for post in posts
+        }
+        context['comment_counts'] = comment_counts
+
+        if self.request.user.is_authenticated:
+            user_likes = Like.objects.filter(user=self.request.user).values_list('post_id', flat=True)
+            context['user_likes'] = set(user_likes)
+        else:
+            context['user_likes'] = set()
+        return context
 
 
 class PostDetailView(DetailView):
@@ -68,6 +88,13 @@ class PostDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['comments'] = self.object.comments.all().order_by('created_at')
+        context['comment_count'] = self.object.comments.count()
+
+        if self.request.user.is_authenticated:
+            liked_posts = Like.objects.filter(user=self.request.user).values_list('post_id', flat=True)
+            context['user_likes'] = set(liked_posts)
+        else:
+            context['user_likes'] = set()
         return context
 
 
