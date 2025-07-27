@@ -1,29 +1,53 @@
 {% extends "MoussawiApp/base.html" %}
+{% load custom_tags %}
 {% block content %} 
   <article class="media content-section">
     <img class="rounded-circle article-img" src="{{ object.author.profile.get_image_url }}">
     <div class="media-body">
-      <div class="article-metadata">
-        <a class="mr-2" href="{% url 'user-posts' object.author.username %}">{{ object.author }}</a>
-        <small class="text-muted" data-timestamp="{{ object.date_posted|date:'c' }}"></small>
+      <div class="article-metadata" style="display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <a class="mr-2" href="{% url 'user-posts' object.author.username %}">{{ object.author }}</a>
+          <small class="text-muted" data-timestamp="{{ object.date_posted|date:'c' }}"></small>
+        </div>
+
+        {% if user.is_authenticated and user != object.author %}
+          <div>
+            {% if user.profile|is_following:object.author.profile %}
+              <form method="post" action="{% url 'unfollow-user' object.author.username %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-sm btn-outline-danger">Unfollow</button>
+              </form>
+            {% else %}
+              <form method="post" action="{% url 'follow-user' object.author.username %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-sm btn-outline-primary">Follow +</button>
+              </form>
+            {% endif %}
+          </div>
+        {% endif %}
+
         {% if object.author == user %}
-            <div class="post-owner-actions">
+          <div class="post-owner-actions">
             <a class="btn btn-secondary btn-sm" href="{% url 'post-update' object.id %}">Update</a>
             <a class="btn btn-danger btn-sm" href="{% url 'post-delete' object.id %}">Delete</a>
-            </div>
+          </div>
         {% endif %}
       </div>
+
       <h2 class="article-title">{{ object.title }}</h2>
       <p class="article-content">{{ object.content }}</p>
+
       {% if object.id in user_likes %}
-  <button class="like-btn" data-post-id="{{ post.id }}" style="background: transparent; border: none; cursor: pointer; font-size: 1.2rem;">
-                <span class="heart-icon">💖</span> <span class="like-count" {% if post.likes.count == 0 %}style="display:none"{% endif %}>{{ post.likes.count }}</span>
-              </button>
-            {% else %}
-              <button class="like-btn" data-post-id="{{ post.id }}" style="background: transparent; border: none; cursor: pointer; font-size: 1.2rem;">
-                <span class="heart-icon">🤍</span> <span class="like-count" {% if post.likes.count == 0 %}style="display:none"{% endif %}>{{ post.likes.count }}</span>
-              </button>
-            {% endif %}
+        <button class="like-btn" data-post-id="{{ object.id }}" style="background: transparent; border: none; cursor: pointer; font-size: 1.2rem;">
+          <span class="heart-icon">💖</span>
+          <span class="like-count" {% if object.likes.count == 0 %}style="display:none"{% endif %}>{{ object.likes.count }}</span>
+        </button>
+      {% else %}
+        <button class="like-btn" data-post-id="{{ object.id }}" style="background: transparent; border: none; cursor: pointer; font-size: 1.2rem;">
+          <span class="heart-icon">🤍</span>
+          <span class="like-count" {% if object.likes.count == 0 %}style="display:none"{% endif %}>{{ object.likes.count }}</span>
+        </button>
+      {% endif %}
     </div>
   </article>
 

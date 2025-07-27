@@ -11,6 +11,10 @@ from imagekitio import ImageKit
 from django.conf import settings
 from imagekitio.models.UploadFileRequestOptions import UploadFileRequestOptions
 from .forms import UserUpdateForm, ProfileUpdateForm
+from django.shortcuts import redirect, get_object_or_404
+from django.contrib.auth.models import User
+from .models import Profile
+
 
 def register_page(request):
     form = UserRegisterForm()
@@ -89,3 +93,19 @@ def register_api(request):
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+#follow and unfollow :
+
+@login_required
+def follow_user(request, username):
+    target_user = get_object_or_404(User, username=username)
+    request.user.profile.follow(target_user.profile)
+    return redirect(request.META.get('HTTP_REFERER', 'home'))
+
+@login_required
+def unfollow_user(request, username):
+    target_user = get_object_or_404(User, username=username)
+    request.user.profile.unfollow(target_user.profile)
+    return redirect(request.META.get('HTTP_REFERER', 'home'))

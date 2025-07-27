@@ -51,6 +51,7 @@ urlpatterns = [
     path('', include('MoussawiApp.urls')),
     path('api-auth/', include('rest_framework.urls')),
     path('users/', include('users.urls')),
+    
 
 ]
 

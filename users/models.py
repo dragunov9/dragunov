@@ -7,9 +7,19 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(default='default.jpg', upload_to='profile_pics', blank=True, null=True)
     image_url = models.URLField(blank=True, null=True)
-    
+    following = models.ManyToManyField('self', symmetrical=False, related_name='followers', blank=True)
+
     def __str__(self):
         return f'{self.user.username} Profile'
+    
+    def is_following(self, profile):
+        return profile in self.following.all()
+    
+    def follow(self, profile):
+        self.following.add(profile)
+
+    def unfollow(self, profile):
+        self.following.remove(profile)    
 
     def get_image_url(self):
         if self.image_url:
