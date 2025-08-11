@@ -101,6 +101,7 @@ class PostDetailView(DetailView):
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     fields = ['title', 'content']
+    template_name = 'MoussawiApp/newpostform.html'
 
     def form_valid(self, form):
         form.instance.author = self.request.user

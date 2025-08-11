@@ -82,7 +82,7 @@ def profile(request):
         'p_form': p_form
     }
 
-    return render(request, 'users/profile.html', context)
+    return render(request, 'users/new_profile.html', context)
 
 
 @api_view(['POST'])
@@ -109,3 +109,19 @@ def unfollow_user(request, username):
     target_user = get_object_or_404(User, username=username)
     request.user.profile.unfollow(target_user.profile)
     return redirect(request.META.get('HTTP_REFERER', 'home'))
+
+
+
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login as auth_login
+
+def login_view(request):
+    form = AuthenticationForm(request, data=request.POST or None)
+
+    if request.method == 'POST':
+        if form.is_valid():
+            user = form.get_user()
+            auth_login(request, user)
+            return redirect('MoussawiApp-home')
+
+    return render(request, 'users/login.html', {'form': form})

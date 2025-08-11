@@ -1,36 +1,43 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
+
 <head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-     
-       <!-----------for favicon--------->
-       <link rel="shortcut icon" href="{% static 'MoussawiApp/favicon.ico' %}">
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="{% static 'MoussawiApp/favicon.ico' %}">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" href="{% static 'MoussawiApp/main.css' %}">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" type="text/css" href="{% static 'MoussawiApp/main.css' %}">
 
-    {% if title %}
-        <title>Django MoussawiApp - {{ title }}</title>
-    {% else %}
-        <title>DraGunoV</title>
-    {% endif %}
-</head>
-<style>
-  .content-section,
-.article-content {
-    white-space: normal;
-    overflow-wrap: break-word;
-    word-break: break-all; /* <- lal post l kbar */
-}
+  <!-- Ionicons for Sidebar Icons -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-/* <- style lal comments */
- .comment-section {
+  {% if title %}
+  <title>Django MoussawiApp - {{ title }}</title>
+  {% else %}
+  <title>DraGunoV</title>
+  {% endif %}
+
+  <style>
+    .content-section,
+    .article-content {
+      white-space: normal;
+      overflow-wrap: break-word;
+      word-break: break-all;
+      /* large post handling */
+    }
+
+    /* Comment styles */
+    .comment-section {
       margin-top: 20px;
     }
 
@@ -53,226 +60,231 @@
       border: 1px solid #ccc;
       resize: vertical;
     }
-</style>
+  </style>
+</head>
+
 <body>
-    <header class="site-header">
-      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
-        <div class="container">
-          <a class="navbar-brand mr-4" href="{% url 'MoussawiApp-home' %}">DraGunoV App</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarToggle">
-            <div class="navbar-nav mr-auto">
-              <a class="nav-item nav-link" href="{% url 'MoussawiApp-home' %}">Home</a>
-            </div>
-            <div class="navbar-nav">
-              {% if user.is_authenticated %}
 
-               <!-- hyda L part lal notification icon -->
-          <div id="notification-wrapper" class="nav-item nav-link d-flex align-items-center" style="position: relative; cursor: pointer; padding: 0;">
-  <button id="notification-btn" class="btn btn-link p-0" style="position: relative; color: inherit;">
-    🔔
-    <span id="notification-count" style="
-      position: absolute;
-      top: -5px;
-      right: -10px;
-      background: red;
-      color: white;
-      border-radius: 50%;
-      padding: 2px 6px;
-      font-size: 12px;
-      display: none;
-    ">0</span>
-  </button>
+  <!-- Top Navbar -->
+ <header class="site-header">
+  <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+    <div class="container">
+      <a class="navbar-brand mr-4" href="{% url 'MoussawiApp-home' %}">DraGunoV App</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-  <div id="notification-dropdown" style="
-    display: none;
-    position: absolute;
-    top: 100%;
-    margin-top: 5px;
-    right: 0;
-    background: white;
-    color: #333;
-    width: 300px;
-    max-height: 400px;
-    overflow-y: auto;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    border-radius: 5px;
-    z-index: 1000;
-  ">
-    <h4 style="margin: 10px; font-weight: bold; color: #333;"></h4>
-    <h6 style="margin: 10px; font-weight: bold; color: #333;">Press to Hide Notifications</h6>
-    <ul id="notification-list" style="list-style: none; padding: 0 10px 10px 10px; margin: 0;">
-      <li style="padding: 10px; text-align: center; color: gray;">Loading...</li>
-    </ul>
-  </div>
-</div>
-<span class="nav-item nav-link" style="pointer-events:none; user-select:none;">|</span>
-
-              <a class="nav-item nav-link" href="{% url 'post-create' %}"> New Post </a>
-              <span class="nav-item nav-link" style="pointer-events:none; user-select:none;">|</span>
-              <a class="nav-item nav-link" href="{% url 'profile' %}"> Profile</a>
-              <span class="nav-item nav-link" style="pointer-events:none; user-select:none;">|</span>
-              <form class="nav-item nav-link" id="logout-form" action="{% url 'logout' %}" method="POST" style="display: inline;">
-              {% csrf_token %}
-              <button type="submit" class="nav-item nav-link btn btn-link" style="padding: 0; border: none; background: none;">Logout
-              </button>
-              </form>
-              {% else  %}
-              <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
-              <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
-              {% endif %}
-            </div>
-          </div>
+      <div class="collapse navbar-collapse" id="navbarToggle">
+        <div class="navbar-nav mr-auto">
+          <a class="nav-item nav-link" href="{% url 'MoussawiApp-home' %}">Home</a>
         </div>
-      </nav>
-    </header>
-    <main role="main" class="container">
-      <div class="row">
-        <div class="col-md-8">
-          {% if messages %}
-            {% for message in messages %}
-              <div class="alert alert-{{ message.tags }}">
-                {{ message }}
-              </div>
-            {% endfor %}
-          {% endif %}
-          {% block content %}{% endblock %}
-        </div>
-        <div class="col-md-4">
-          <div class="content-section">
-            <h3>Our Sidebar</h3>
-            <p class='text-muted'>You can put any information here you'd like.
-              <ul class="list-group">
-                <li class="list-group-item list-group-item-light">Latest Posts</li>
-                <li class="list-group-item list-group-item-light">Announcements</li>
-                <li class="list-group-item list-group-item-light">Calendars</li>
-                <li class="list-group-item list-group-item-light">etc</li>
+        <div class="navbar-nav">
+          {% if user.is_authenticated %}
+          <!-- Notification Icon -->
+          <div id="notification-wrapper" class="nav-item nav-link d-flex align-items-center"
+            style="position: relative; cursor: pointer;">
+            <button id="notification-btn" class="btn btn-link p-0" style="color: inherit; position: relative;">
+              🔔
+              <span id="notification-count"
+                style="position: absolute; top: -5px; right: -10px; background: red; color: white; border-radius: 50%; padding: 2px 6px; font-size: 12px; display: none;">0</span>
+            </button>
+            <div id="notification-dropdown"
+              style="display: none; position: absolute; top: 100%; margin-top: 5px; right: 0; background: white; color: #333; width: 300px; max-height: 400px; overflow-y: auto; box-shadow: 0 2px 5px rgba(0,0,0,0.3); border-radius: 5px; z-index: 1000;">
+              <h6 style="margin: 10px; font-weight: bold;">Press to Hide Notifications</h6>
+              <ul id="notification-list" style="list-style: none; padding: 0 10px 10px; margin: 0;">
+                <li style="padding: 10px; text-align: center; color: gray;">Loading...</li>
               </ul>
-            </p>
+            </div>
           </div>
+
+          <!-- Mobile-only links (moved outside dropdown so they work) -->
+          <li class="nav-item d-lg-none">
+            <a class="nav-link" href="{% url 'post-create' %}">New Post</a>
+          </li>
+          <li class="nav-item d-lg-none">
+            <a class="nav-link" href="/profile">Profile</a>
+          </li>
+
+          <!-- Divider and Logout -->
+          <span class="nav-item nav-link" style="pointer-events:none; user-select:none;"></span>
+          <a class="nav-item nav-link" href="#"
+            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+          <form id="logout-form" action="{% url 'logout' %}" method="POST" style="display: none;">
+            {% csrf_token %}
+          </form>
+
+          {% else %}
+          <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+          <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+          {% endif %}
         </div>
       </div>
+    </div>
+  </nav>
+</header>
+
+
+  <!-- Page Layout -->
+  <div class="page-wrapper">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      {% if user.is_authenticated %}
+      <div class="sidebar-info text-center">
+        <figure class="avatar-box">
+          <img src="{{ user.profile.get_image_url }}" alt="avatar">
+        </figure>
+        <div class="info-content">
+          <h1 class="name">{{ user.username }}</h1>
+          <p class="title">User</p>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="{% url 'post-create' %}"><ion-icon name="add-circle-outline"></ion-icon> New Post</a>
+        <a href="{% url 'profile' %}"><ion-icon name="person-outline"></ion-icon> Profile</a>
+        <!-- <a href="#"><ion-icon name="notifications-outline"></ion-icon> Notifications</a>-->
+      </nav>
+      {% else %}
+      <div class="sidebar-login">
+        <a href="{% url 'login' %}" class="login-btn">Login</a>
+      </div>
+      {% endif %}
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content container">
+      {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+      {% endfor %}
+      {% endif %}
+      {% block content %}{% endblock %}
     </main>
-{% if user.is_authenticated %}
-   <script>
-  const notificationBtn = document.getElementById('notification-btn');
-  const notificationDropdown = document.getElementById('notification-dropdown');
-  const notificationCount = document.getElementById('notification-count');
-  const notificationList = document.getElementById('notification-list');
 
-  let dropdownVisible = false;
+  </div>
 
-  // Helper: Get CSRF token
-  function getCookie(name) {
-    let cookieValue = null;
-    if (document.cookie && document.cookie !== '') {
-      const cookies = document.cookie.split(';');
-      for (let i = 0; i < cookies.length; i++) {
-        const cookie = cookies[i].trim();
-        if (cookie.startsWith(name + '=')) {
-          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-          break;
-        }
-      }
-    }
-    return cookieValue;
-  }
+  {% if user.is_authenticated %}
+  <script>
+    const notificationBtn = document.getElementById('notification-btn');
+    const notificationDropdown = document.getElementById('notification-dropdown');
+    const notificationCount = document.getElementById('notification-count');
+    const notificationList = document.getElementById('notification-list');
 
-  async function fetchNotifications() {
-    try {
-      const response = await fetch('/api/notifications/', {
-        headers: {
-          'Accept': 'application/json',
-          'X-Requested-With': 'XMLHttpRequest'
-        },
-        credentials: 'same-origin'
-      });
+    let dropdownVisible = false;
 
-      if (response.ok) {
-        const notifications = await response.json();
-
-        // Count only unread notifications for badge
-        const unreadCount = notifications.filter(n => !n.is_read).length;
-        notificationCount.textContent = unreadCount;
-        notificationCount.style.display = unreadCount > 0 ? 'inline-block' : 'none';
-
-        if (dropdownVisible) {
-          if (notifications.length === 0) {
-            notificationList.innerHTML =
-              '<li style="padding: 10px; text-align: center; color: gray;">No new notifications.</li>';
-          } else {
-            notificationList.innerHTML = '';
-            notifications.forEach(n => {
-              const icon = n.type === 'like' ? '💖' : '💬';
-              const text = n.type === 'like'
-                ? `${n.sender.username} liked your post "${n.post.title}"`
-                : `${n.sender.username} commented on your post "${n.post.title}"`;
-
-              const li = document.createElement('li');
-              li.style.padding = '8px';
-              li.style.borderBottom = '1px solid #ddd';
-              li.style.cursor = 'pointer';
-              li.style.color = '#333';
-              
-              li.style.opacity = n.is_read ? 0.5 : 1;
-              li.innerHTML = `${icon} ${text}`;
-
-              // Mark as read bas tekbos click 3l message
-              li.addEventListener('click', async () => {
-                await fetch(`/api/notifications/${n.id}/read/`, {
-                  method: 'POST',
-                  headers: {
-                    'X-Requested-With': 'XMLHttpRequest',
-                    'Content-Type': 'application/json',
-                    'X-CSRFToken': getCookie('csrftoken')
-                  },
-                  credentials: 'same-origin'
-                });
-                li.style.opacity = 0.5; // Visual feedback that it's read
-                fetchNotifications();    // Refresh count and list
-              });
-
-              notificationList.appendChild(li);
-            });
+    // Helper: Get CSRF token
+    function getCookie(name) {
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+          const cookie = cookies[i].trim();
+          if (cookie.startsWith(name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
           }
         }
-      } else {
-        notificationList.innerHTML =
-          '<li style="padding: 10px; color: red; text-align: center;">Failed to load notifications.</li>';
       }
-    } catch (error) {
-      notificationList.innerHTML =
-        '<li style="padding: 10px; color: red; text-align: center;">Error loading notifications.</li>';
-      console.error(error);
+      return cookieValue;
     }
-  }
 
- 
-  fetchNotifications();
+    async function fetchNotifications() {
+      try {
+        const response = await fetch('/api/notifications/', {
+          headers: {
+            'Accept': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest'
+          },
+          credentials: 'same-origin'
+        });
 
-  notificationBtn.addEventListener('click', () => {
-    dropdownVisible = !dropdownVisible;
-    notificationDropdown.style.display = dropdownVisible ? 'block' : 'none';
-    if (dropdownVisible) {
-      fetchNotifications();
+        if (response.ok) {
+          const notifications = await response.json();
+
+          // Count only unread notifications for badge
+          const unreadCount = notifications.filter(n => !n.is_read).length;
+          notificationCount.textContent = unreadCount;
+          notificationCount.style.display = unreadCount > 0 ? 'inline-block' : 'none';
+
+          if (dropdownVisible) {
+            if (notifications.length === 0) {
+              notificationList.innerHTML =
+                '<li style="padding: 10px; text-align: center; color: gray;">No new notifications.</li>';
+            } else {
+              notificationList.innerHTML = '';
+              notifications.forEach(n => {
+                const icon = n.type === 'like' ? '💖' : '💬';
+                const text = n.type === 'like'
+                  ? `${n.sender.username} liked your post "${n.post.title}"`
+                  : `${n.sender.username} commented on your post "${n.post.title}"`;
+
+                const li = document.createElement('li');
+                li.style.padding = '8px';
+                li.style.borderBottom = '1px solid #ddd';
+                li.style.cursor = 'pointer';
+                li.style.color = '#333';
+
+                li.style.opacity = n.is_read ? 0.5 : 1;
+                li.innerHTML = `${icon} ${text}`;
+
+                // Mark as read bas tekbos click 3l message
+                li.addEventListener('click', async () => {
+                  await fetch(`/api/notifications/${n.id}/read/`, {
+                    method: 'POST',
+                    headers: {
+                      'X-Requested-With': 'XMLHttpRequest',
+                      'Content-Type': 'application/json',
+                      'X-CSRFToken': getCookie('csrftoken')
+                    },
+                    credentials: 'same-origin'
+                  });
+                  li.style.opacity = 0.5; // Visual feedback that it's read
+                  fetchNotifications();    // Refresh count and list
+                });
+
+                notificationList.appendChild(li);
+              });
+            }
+          }
+        } else {
+          notificationList.innerHTML =
+            '<li style="padding: 10px; color: red; text-align: center;">Failed to load notifications.</li>';
+        }
+      } catch (error) {
+        notificationList.innerHTML =
+          '<li style="padding: 10px; color: red; text-align: center;">Error loading notifications.</li>';
+        console.error(error);
+      }
     }
-  });
 
-  document.addEventListener('click', (e) => {
-    if (!notificationBtn.contains(e.target) && !notificationDropdown.contains(e.target)) {
-      notificationDropdown.style.display = 'none';
-      dropdownVisible = false;
-    }
-  });
-</script>
 
-{% endif %}
+    fetchNotifications();
 
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    notificationBtn.addEventListener('click', () => {
+      dropdownVisible = !dropdownVisible;
+      notificationDropdown.style.display = dropdownVisible ? 'block' : 'none';
+      if (dropdownVisible) {
+        fetchNotifications();
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!notificationBtn.contains(e.target) && !notificationDropdown.contains(e.target)) {
+        notificationDropdown.style.display = 'none';
+        dropdownVisible = false;
+      }
+    });
+  </script>
+
+
+  {% endif %}
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
 </body>
+
 </html>

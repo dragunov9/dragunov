@@ -1,15 +1,12 @@
+/* ====== Base Styling ====== */
 body {
     background: #fafafa;
     color: #333333;
     margin-top: 5rem;
+    font-family: Arial, sans-serif;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
     color: #444444;
 }
 
@@ -33,14 +30,24 @@ ul {
     font-weight: 500;
 }
 
+/* ====== Content Section ====== */
 .content-section {
     background: #ffffff;
-    padding: 10px 20px;
+    padding: 15px 20px;
     border: 1px solid #dddddd;
     border-radius: 12px;
     margin-bottom: 20px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.content-section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+/* ====== Article Styling ====== */
 .article-title {
     color: #444444;
     font-size: 25px;
@@ -60,12 +67,13 @@ a.article-title:hover {
     height: 65px;
     width: 65px;
     margin-right: 16px;
+    border-radius: 50%;
 }
 
 .article-metadata {
     padding-bottom: 1px;
     margin-bottom: 4px;
-    border-bottom: 1px solid #e3e3e3
+    border-bottom: 1px solid #e3e3e3;
 }
 
 .article-metadata a:hover {
@@ -79,6 +87,7 @@ a.article-title:hover {
     vertical-align: middle;
 }
 
+/* ====== Account Image ====== */
 .account-img {
     height: 125px;
     width: 125px;
@@ -90,24 +99,19 @@ a.article-title:hover {
     font-size: 2.5rem;
 }
 
-.content-section {
-    word-wrap: break-word; 
-    overflow-wrap: break-word;
-}
-
-/* <- style lal like w unlike  */
+/* ====== Like / Unlike Animations ====== */
 .like-btn:focus {
   outline: none;
   box-shadow: none;
 }
-/* <- style lal like w unlike  */
+
 .liked {
   animation: pop 0.5s ease forwards;
 }
 
 @keyframes pop {
   0% { transform: scale(1); }
-  50% { transform: scale(5); }
+  50% { transform: scale(1.5); }
   100% { transform: scale(1); }
 }
 
@@ -119,34 +123,38 @@ a.article-title:hover {
   0% { transform: translateY(0); opacity: 1; }
   100% { transform: translateY(30px); opacity: 0; }
 }
+
 .heart-icon {
   display: inline-block;
   transform-origin: center center;
 }
 
-/* <- style lal comment w post file  */
- .comment-menu-btn:focus,
+/* ====== Comment Menu Styling ====== */
+.comment-menu-btn:focus,
 .comment-menu-btn:active {
   outline: none;
   box-shadow: none;
   background: transparent;
 }
- .comment-menu-dropdown a {
+
+.comment-menu-dropdown a {
     color: red;
     text-decoration: none;
     display: block;
     padding: 6px 10px;
     font-size: 14px;
-  }
+}
 
-  .comment-menu-dropdown a:hover {
+.comment-menu-dropdown a:hover {
     background-color: #000000;
-  }
-    .post-owner-actions {
+}
+
+.post-owner-actions {
     margin-top: 15px;
     margin-bottom: 25px;
-  }
-  .content-section,
+}
+
+.content-section,
 .article-content,
 .comment-content {
     white-space: normal;
@@ -158,4 +166,299 @@ a.article-title:hover {
 .btn-outline-danger:hover {
     transform: scale(1.05);
     transition: all 0.2s ease-in-out;
+}
+
+/* ====== Follow / Unfollow Buttons (Restored Original) ====== */
+.follow-slice-btn {
+  padding: 0.4rem 0.6rem;
+  border-radius: 40px;
+  color: #000000;
+  font-size: 0.7rem;
+  font-weight: 450;
+  letter-spacing: 0.09rem;
+  position: relative;
+  background: transparent;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 1000ms cubic-bezier(0.890, -0.170, 0.140, 1.225);
+}
+
+.follow-slice-top,
+.follow-slice-bottom {
+  position: relative;
+  height: 6px;
+  overflow: hidden;
+}
+
+.follow-slice-bottom span {
+  top: -6px;
+  position: absolute;
+  left: 0;
+}
+
+.follow-slice-btn:hover .follow-slice-top {
+  top: -5px;
+  transition-delay: 0.35s;
+}
+
+.follow-slice-btn:hover .follow-slice-bottom {
+  bottom: -5px;
+  transition-delay: 0.35s;
+}
+
+.follow-slice-btn:hover,
+.follow-slice-btn:focus,
+.follow-slice-btn:active {
+  margin-left: 10px;
+}
+
+.follow-slice-btn:before {
+  content: '';
+  height: 1px;
+  width: 60px;
+  position: absolute;
+  margin-top: 6px;
+  right: -35px;
+  transition: all 1000ms cubic-bezier(0.890, -0.170, 0.140, 1.225);
+}
+
+.follow-slice-btn:hover:before {
+  width: 130%;
+}
+
+.follow-slice-btn.follow {
+  border: 2px solid #000000;
+}
+
+.follow-slice-btn.unfollow {
+  border: 2px solid #dc3545;
+}
+
+.follow-slice-btn.unfollow:before {
+  background-color: #dc3545;
+}
+
+.follow-form {
+  background: none;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  display: inline;
+}
+
+/* ====== Sidebar Styling ====== */
+.page-wrapper {
+    display: flex;
+}
+
+.sidebar {
+    position: fixed;
+    top: 56px; /* height of navbar */
+    left: 0;
+    width: 240px; /* reduced for better content space */
+    height: calc(100% - 56px);
+    background: #000000;
+    color: #fff;
+    padding: 20px;
+    overflow-y: auto;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+}
+
+.sidebar-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar .avatar-box img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border: 3px solid #ffc864;
+}
+
+/* Username in Sidebar — white only here */
+.sidebar .name {
+    font-size: 1.2rem;
+    margin: 10px 0 5px;
+    color: #ffffff; /* changed */
+    font-weight: bold;
+}
+
+.sidebar .title {
+    font-size: 0.85rem;
+    color: #ccc;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-nav a {
+    color: #fff;
+    padding: 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s ease;
+}
+
+.sidebar-nav a:hover {
+    background: #ffc864;
+    color: #000;
+}
+
+.sidebar-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.sidebar-login .login-btn {
+    padding: 10px 20px;
+    background: #ffc864;
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.sidebar-login .login-btn:hover {
+    background: #e0ad4d;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ====== Logout Link Styling (Restored Original) ====== */
+.navbar-nav.ml-auto .nav-item .nav-link {
+    color: #ffffff;
+    font-weight: bold;
+    padding: 8px 12px;
+}
+
+.navbar-nav.ml-auto .nav-item .nav-link:hover {
+    color: #ffc864;
+}
+
+/* ====== Main Content Adjust ====== */
+.main-content {
+    margin-left: 240px; /* aligned closer to sidebar */
+    padding: 20px;
+    flex: 1;
+}
+
+/* ====== Forms Styling ====== */
+form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+form .form-group input,
+form .form-group textarea,
+form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    font-size: 14px;
+}
+
+form .form-group input:focus,
+form .form-group textarea:focus,
+form select:focus {
+    border-color: #428bca;
+    box-shadow: 0 0 0 3px rgba(66,139,202,0.2);
+    outline: none;
+}
+
+form button {
+    background: #428bca;
+    color: #fff;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background 0.2s ease;
+}
+
+form button:hover {
+    background: #ffffff;
+}
+
+
+/* ====== Mobile: hide left sidebar and make main content full-width ====== */
+/* Place this after "form button:hover { background: #ffffff; }" */
+
+@media (max-width: 992px) {
+  /* Completely hide the left sidebar on tablets/phones */
+  .sidebar {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  /* Make the main content take full width */
+  .main-content {
+    margin-left: 0 !important;
+    padding: 16px !important;
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  /* Ensure the wrapper doesn't keep horizontal layout */
+  .page-wrapper {
+    display: block !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* tighter spacing for smaller phones */
+  body { margin-top: 3.5rem; }
+
+  .content-section {
+    padding: 12px 14px;
+    margin-bottom: 14px;
+  }
+
+  .article-title { font-size: 18px; }
+  .article-content { font-size: 16px; line-height: 1.45; }
+
+  .account-img { height: 80px; width: 80px; }
+  .account-heading { font-size: 1.6rem; }
+}
+
+@media (max-width: 576px) {
+  .content-section { padding: 10px 12px; border-radius: 8px; }
+  .article-title { font-size: 16px; }
+  .article-content { font-size: 15px; }
+  form { padding: 12px; }
+}
+
+
+.article-content-truncated,
+.article-content-full {
+  word-wrap: break-word; /* Ensures long, unbroken words don't overflow */
+  word-break: normal; /* Prevents words from splitting mid-syllable */
+  overflow-wrap: break-word;
+  hyphens: manual;
 }

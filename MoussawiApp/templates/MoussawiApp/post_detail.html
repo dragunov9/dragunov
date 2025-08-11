@@ -10,21 +10,30 @@
           <small class="text-muted" data-timestamp="{{ object.date_posted|date:'c' }}"></small>
         </div>
 
-        {% if user.is_authenticated and user != object.author %}
-          <div>
-            {% if user.profile|is_following:object.author.profile %}
-              <form method="post" action="{% url 'unfollow-user' object.author.username %}">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-sm btn-outline-danger">Unfollow</button>
-              </form>
-            {% else %}
-              <form method="post" action="{% url 'follow-user' object.author.username %}">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-sm btn-outline-primary">Follow +</button>
-              </form>
-            {% endif %}
-          </div>
-        {% endif %}
+       {% if user.is_authenticated and user != object.author %}
+  <div>
+    {% if user.profile|is_following:object.author.profile %}
+      <!-- Unfollow Slice Button -->
+      <form method="post" action="{% url 'unfollow-user' object.author.username %}" class="follow-form">
+        {% csrf_token %}
+        <button type="submit" class="follow-slice-btn unfollow">
+          <div class="follow-slice-top"><span>Unfollow</span></div>
+          <div class="follow-slice-bottom"><span>Unfollow</span></div>
+        </button>
+      </form>
+    {% else %}
+      <!-- Follow Slice Button -->
+      <form method="post" action="{% url 'follow-user' object.author.username %}" class="follow-form">
+        {% csrf_token %}
+        <button type="submit" class="follow-slice-btn follow">
+          <div class="follow-slice-top"><span>Follow</span></div>
+          <div class="follow-slice-bottom"><span>Follow</span></div>
+        </button>
+      </form>
+    {% endif %}
+  </div>
+{% endif %}
+
 
         {% if object.author == user %}
           <div class="post-owner-actions">
