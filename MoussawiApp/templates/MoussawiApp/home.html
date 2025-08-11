@@ -29,8 +29,8 @@
     <div class="article-content-container">
       <p class="article-content-full" style="display:none;">{{ post.content }}</p>
       <p class="article-content-truncated">
-        {{ post.content|truncatewords:15 }}
-        {% if post.content|wordcount > 15 %}
+        {{ post.content|truncatechars:90 }}
+        {% if post.content|length > 90 %}
         <a href="#" class="read-more-btn" style="display: block;">See more</a>
         {% endif %}
       </p>

@@ -457,8 +457,8 @@ form button:hover {
 
 .article-content-truncated,
 .article-content-full {
-  word-wrap: break-word; /* Ensures long, unbroken words don't overflow */
-  word-break: normal; /* Prevents words from splitting mid-syllable */
+  word-wrap: break-word; 
+  word-break: break-all; /* This is the key change */
   overflow-wrap: break-word;
   hyphens: manual;
 }
