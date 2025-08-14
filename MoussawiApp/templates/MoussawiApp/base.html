@@ -97,7 +97,7 @@
             </div>
           </div>
 
-          <!-- Mobile-only links (moved outside dropdown so they work) -->
+          <!-- Mobile-only links (moved outside dropdown) -->
           <li class="nav-item d-lg-none">
             <a class="nav-link" href="{% url 'post-create' %}">New Post</a>
           </li>
@@ -142,7 +142,7 @@
       <nav class="sidebar-nav">
         <a href="{% url 'post-create' %}"><ion-icon name="add-circle-outline"></ion-icon> New Post</a>
         <a href="{% url 'profile' %}"><ion-icon name="person-outline"></ion-icon> Profile</a>
-        <!-- <a href="#"><ion-icon name="notifications-outline"></ion-icon> Notifications</a>-->
+        
       </nav>
       {% else %}
       <div class="sidebar-login">

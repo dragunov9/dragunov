@@ -130,24 +130,159 @@ a.article-title:hover {
 }
 
 /* ====== Comment Menu Styling ====== */
-.comment-menu-btn:focus,
-.comment-menu-btn:active {
-  outline: none;
-  box-shadow: none;
-  background: transparent;
+/* ====================================================================== */
+/* === New Comment Section CSS - Designed for Dark Theme === */
+/* ====================================================================== */
+
+/* Outer container for the entire comments section */
+.comment-section-container {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: #1a1a1a; /* Dark background */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Heading for the comments section */
+.comment-section-container h4 {
+    color: #f0f0f0; /* Light text for contrast */
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #333333;
+    padding-bottom: 0.5rem;
+}
+
+/* Individual comment box styling */
+.comment-box {
+    position: relative;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    background-color: #242424; /* Slightly lighter dark background for the box */
+    border-radius: 8px;
+    border-left: 4px solid #ffc864; /* Accent color bar */
+    transition: all 0.2s ease-in-out;
+}
+
+.comment-box:hover {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Username within the comment */
+.comment-box strong {
+    color: #ffc864; /* Highlighted username color */
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* Comment text content */
+.comment-box p.comment-content {
+    color: #e0e0e0; /* Light gray text */
+    margin: 0.5rem 0;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+/* Comment timestamp */
+.comment-box small.text-muted {
+    color: #888888; /* Muted gray for the date */
+    font-size: 0.85rem;
+    display: block;
+    margin-top: 0.5rem;
+}
+
+/* Comment menu button (the "...") */
+.comment-box .comment-menu-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: #888888;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.2s ease;
+}
+
+.comment-box .comment-menu-btn:hover {
+    color: #ffffff; /* White on hover */
+}
+
+/* Comment menu dropdown */
+.comment-menu-dropdown {
+    position: absolute;
+    background-color: #333333; /* Dark background for the dropdown */
+    border: 1px solid #555555;
+    right: 10px;
+    top: 35px;
+    z-index: 10;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
 }
 
 .comment-menu-dropdown a {
-    color: red;
-    text-decoration: none;
     display: block;
-    padding: 6px 10px;
-    font-size: 14px;
+    padding: 8px 12px;
+    color: #dc3545; /* Red for delete action */
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
 }
 
 .comment-menu-dropdown a:hover {
-    background-color: #000000;
+    background-color: #444444;
 }
+
+/* Add comment form styling */
+#comment-form {
+    padding: 1.5rem;
+    background-color: #1a1a1a;
+    border: 1px solid #333333;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+#comment-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #555555;
+    border-radius: 6px;
+    background-color: #242424;
+    color: #e0e0e0;
+    resize: vertical;
+    min-height: 80px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+}
+
+#comment-form textarea::placeholder {
+    color: #888888;
+}
+
+#comment-form textarea:focus {
+    outline: none;
+    border-color: #ffc864;
+    box-shadow: 0 0 0 3px rgba(255, 200, 100, 0.25);
+}
+
+#comment-form .btn-primary {
+    background-color: #ffc864;
+    border: none;
+    color: #1a1a1a;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#comment-form .btn-primary:hover {
+    background-color: #e0ad4d;
+}
+
+/* End  */
+
+
 
 .post-owner-actions {
     margin-top: 15px;
@@ -457,8 +592,7 @@ form button:hover {
 
 .article-content-truncated,
 .article-content-full {
-  word-wrap: break-word; 
-  word-break: break-all; /* This is the key change */
+  word-break: break-word;
   overflow-wrap: break-word;
-  hyphens: manual;
+  hyphens: auto; 
 }

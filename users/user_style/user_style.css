@@ -612,8 +612,8 @@ article { display: none; }
   background-color: transparent;
   cursor: pointer;
   border: 0;
-  top: 10px; /* Adjust this value to place it at the top */
-  left: 10px; /* Adjust this value to place it at the left */
+  top: 60px; /* Adjust this value to place it at the top */
+  left: 200px; /* Adjust this value to place it at the left */
   z-index: 10;
 }
 
